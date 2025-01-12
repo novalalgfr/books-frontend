@@ -2,6 +2,40 @@ import { ArrowRightAlt } from '@mui/icons-material';
 import { Typography } from '@mui/material';
 
 function Home() {
+	const books = [
+		{
+			image: 'public/img/book-1.png',
+			price: '$4.99',
+			title: 'Pride and Prejudice (The Peacock Edition)',
+			description: 'Kisah cinta klasik penuh prasangka dan harga diri.'
+		},
+		{
+			image: 'public/img/book-2.png',
+			price: '$3.49',
+			title: 'A Clockwork Orange',
+			description:
+				'Distopia kekerasan, kebebasan, dan moralitas manusia terganggu.'
+		},
+		{
+			image: 'public/img/book-3.png',
+			price: '$5.99',
+			title: 'The Grapes of Wrath',
+			description: 'Perjuangan keluarga miskin di era Depresi Besar.'
+		},
+		{
+			image: 'public/img/book-4.png',
+			price: '$2.99',
+			title: 'American Psycho',
+			description: 'Kehidupan gila seorang bankir psikopat di kota.'
+		},
+		{
+			image: 'public/img/book-5.png',
+			price: '$4.99',
+			title: 'Brave New World',
+			description: 'Dunia futuristik dengan kontrol total dan hedonisme.'
+		}
+	];
+
 	return (
 		<>
 			<img
@@ -13,12 +47,12 @@ function Home() {
 				<div className="grid grid-cols-2 items-center gap-6">
 					<div>
 						<Typography className="!text-7xl !font-bold">
-							Lorem ipsum dolor sit amet
+							Temukan Buku Favoritmu di Sini!
 						</Typography>
 						<Typography className="!mt-4">
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua.
+							Jelajahi ribuan koleksi buku dari berbagai genre.
+							Mulai perjalanan membaca yang seru dan menginspirasi
+							hanya dengan beberapa klik!
 						</Typography>
 					</div>
 					<div>
@@ -32,9 +66,6 @@ function Home() {
 
 			<div className="bg-white">
 				<div className="max-w-7xl mx-auto py-6">
-					{/* <Typography className="!text-2xl !font-bold">
-						OFFICIAL STORE
-					</Typography> */}
 					<div className="grid grid-cols-6 gap-4">
 						<img
 							src="public/img/official-store-1.svg"
@@ -65,30 +96,30 @@ function Home() {
 			</div>
 
 			<div className="bg-[#11190C]">
-				<div className="max-w-5xl mx-auto py-16">
+				<div className="max-w-5xl mx-auto py-24">
 					<Typography className="!text-5xl !font-black text-center text-white">
-						<span className="!text-[#E6FF00]">Lorem Ipsum</span>{' '}
-						Dolor Sit Amet
+						Kenapa Memilih
+						<span className="!text-[#E6FF00]"> Books</span> ?
 					</Typography>
 					<div className="grid grid-cols-3 gap-4 mt-16">
 						<div className="col-span-2 bg-[#F3F1EE] rounded-[16px] p-6">
 							<div className="grid grid-cols-2 items-end gap-4">
 								<div>
 									<Typography className="!text-2xl !font-bold">
-										Lorem Ipsum Dolor Sit Amet Consectetur
+										Koleksi Buku Lengkap untuk Semua Pembaca
 									</Typography>
 									<Typography className="!text-[14px] !mt-2 !mb-3">
-										Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit, sed do eiusmod tempor
-										incididunt ut
+										Temukan ribuan pilihan buku dari
+										berbagai genre untuk memenuhi selera
+										baca Anda.
 									</Typography>
-									<a
+									{/* <a
 										href=""
 										className="!text-[14px] !font-semibold"
 									>
 										Explore Now{' '}
 										<ArrowRightAlt className="!text-[24px]" />
-									</a>
+									</a> */}
 								</div>
 								<div>
 									<img
@@ -104,25 +135,24 @@ function Home() {
 									<img
 										src="public/img/illustrasi-1.svg"
 										alt=""
-										className="!h-[190px]"
+										className="!h-[200px]"
 									/>
 								</div>
 								<div>
 									<Typography className="!text-2xl !font-bold">
-										Lorem Ipsum Dolor Sit Amet Consectetur
+										Belanja Buku dengan Layanan Terpercaya
 									</Typography>
 									<Typography className="!text-[14px] !mt-2 !mb-3">
-										Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit, sed do eiusmod tempor
-										incididunt ut
+										Nikmati proses belanja yang cepat, aman,
+										dan nyaman untuk setiap pembelian.
 									</Typography>
-									<a
+									{/* <a
 										href=""
 										className="!text-[14px] !font-semibold"
 									>
 										Explore Now{' '}
 										<ArrowRightAlt className="!text-[24px]" />
-									</a>
+									</a> */}
 								</div>
 							</div>
 						</div>
@@ -138,148 +168,52 @@ function Home() {
 			<div className="max-w-7xl mx-auto py-16 mt-16">
 				<div className="flex justify-between items-center">
 					<Typography className="!text-5xl !font-black">
-						Our Best Selling!
+						Penjualan Terbaik Kami!
 					</Typography>
-					<Typography className="!text-[14px] !font-semibold">
-						Explore <ArrowRightAlt className="!text-[24px]" />
-					</Typography>
+					<a
+						href="/buku"
+						className="!text-[14px] !font-semibold"
+					>
+						Selengkapnya <ArrowRightAlt className="!text-[24px]" />
+					</a>
 				</div>
 				<div className="grid grid-cols-5 gap-4 mt-12">
-					<div className="bg-[#F3F1EE] rounded-[16px]">
-						<div className="flex flex-col gap-4 p-4">
-							<div>
-								<img
-									src="public/img/book-1.png"
-									alt=""
-									className="w-full rounded-[8px]"
-								/>
-							</div>
-							<div>
-								<Typography className="!text-[17px] !font-bold">
-									Lorem ipsum dolor
-								</Typography>
-								<Typography className="!text-[13px] text-justify !mt-2 !mb-3">
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit,
-								</Typography>
-								<a
-									href=""
-									className="!text-[14px] !font-semibold"
-								>
-									Purchase Now{' '}
-									<ArrowRightAlt className="!text-[24px]" />
-								</a>
-							</div>
-						</div>
-					</div>
-					<div className="bg-[#F3F1EE] rounded-[16px]">
-						<div className="flex flex-col gap-4 p-4">
-							<div>
-								<img
-									src="public/img/book-2.png"
-									alt=""
-									className="w-full rounded-[8px]"
-								/>
-							</div>
-							<div>
-								<Typography className="!text-[17px] !font-bold">
-									Lorem ipsum dolor
-								</Typography>
-								<Typography className="!text-[13px] text-justify !mt-2 !mb-3">
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit,
-								</Typography>
-								<a
-									href=""
-									className="!text-[14px] !font-semibold"
-								>
-									Purchase Now{' '}
-									<ArrowRightAlt className="!text-[24px]" />
-								</a>
+					{books.map((book, index) => (
+						<div
+							key={index}
+							className="bg-[#F3F1EE] rounded-[16px] flex flex-col h-full"
+						>
+							<div className="flex flex-col gap-4 p-4 flex-grow">
+								<div>
+									<img
+										src={book.image}
+										alt={book.title}
+										className="w-full rounded-[8px]"
+									/>
+								</div>
+								<div className="flex flex-col flex-grow">
+									<Typography className="!text-[15px] !font-bold">
+										{book.price}
+									</Typography>
+									<Typography className="!text-[17px] !font-bold">
+										{book.title}
+									</Typography>
+									<Typography className="!text-[13px] text-justify !mt-2 !mb-3 flex-grow">
+										{book.description}
+									</Typography>
+								</div>
+								<div className="flex items-end">
+									<a
+										href=""
+										className="!text-[14px] !font-semibold flex items-center"
+									>
+										Purchase Now{' '}
+										<ArrowRightAlt className="!text-[24px] ml-2" />
+									</a>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div className="bg-[#F3F1EE] rounded-[16px]">
-						<div className="flex flex-col gap-4 p-4">
-							<div>
-								<img
-									src="public/img/book-3.png"
-									alt=""
-									className="w-full rounded-[8px]"
-								/>
-							</div>
-							<div>
-								<Typography className="!text-[17px] !font-bold">
-									Lorem ipsum dolor
-								</Typography>
-								<Typography className="!text-[13px] text-justify !mt-2 !mb-3">
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit,
-								</Typography>
-								<a
-									href=""
-									className="!text-[14px] !font-semibold"
-								>
-									Purchase Now{' '}
-									<ArrowRightAlt className="!text-[24px]" />
-								</a>
-							</div>
-						</div>
-					</div>
-					<div className="bg-[#F3F1EE] rounded-[16px]">
-						<div className="flex flex-col gap-4 p-4">
-							<div>
-								<img
-									src="public/img/book-4.png"
-									alt=""
-									className="w-full rounded-[8px]"
-								/>
-							</div>
-							<div>
-								<Typography className="!text-[17px] !font-bold">
-									Lorem ipsum dolor
-								</Typography>
-								<Typography className="!text-[13px] text-justify !mt-2 !mb-3">
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit,
-								</Typography>
-								<a
-									href=""
-									className="!text-[14px] !font-semibold"
-								>
-									Purchase Now{' '}
-									<ArrowRightAlt className="!text-[24px]" />
-								</a>
-							</div>
-						</div>
-					</div>
-					<div className="bg-[#F3F1EE] rounded-[16px]">
-						<div className="flex flex-col gap-4 p-4">
-							<div>
-								<img
-									src="public/img/book-5.png"
-									alt=""
-									className="w-full rounded-[8px]"
-								/>
-							</div>
-							<div>
-								<Typography className="!text-[17px] !font-bold">
-									Lorem ipsum dolor
-								</Typography>
-								<Typography className="!text-[13px] text-justify !mt-2 !mb-3">
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit,
-								</Typography>
-								<a
-									href=""
-									className="!text-[14px] !font-semibold"
-								>
-									Purchase Now{' '}
-									<ArrowRightAlt className="!text-[24px]" />
-								</a>
-							</div>
-						</div>
-					</div>
+					))}
 				</div>
 			</div>
 
@@ -290,12 +224,11 @@ function Home() {
 			/>
 			<div className="max-w-2xl mx-auto py-16 mt-16 text-center">
 				<Typography className="!text-6xl !font-bold">
-					The best checkout for your brand
+					Siap untuk Membaca Buku Favoritmu?
 				</Typography>
 				<Typography className="!text-lg !font-medium !mt-6">
-					Learn more about how Bolt can empower your business, whether
-					by augmenting your existing shopping experiences or handling
-					end-to-end checkout for you.
+					Ayo mulai perjalananmu sekarang! Temukan buku terbaik dan
+					nikmati pengalaman membaca yang tak terlupakan.
 				</Typography>
 			</div>
 		</>

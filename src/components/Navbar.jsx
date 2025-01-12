@@ -17,6 +17,7 @@ function Navbar() {
 	const isMobile = useMediaQuery('(max-width:600px)');
 
 	const location = useLocation();
+	const isHome = location.pathname === '/';
 
 	const handleDrawerToggle = () => {
 		setOpen(!open);
@@ -149,8 +150,10 @@ function Navbar() {
 										Buku
 									</Link>
 									<Link
-										to="/blog"
-										className="text-[14px] text-[#E6FF00] hover:text-black font-semibold no-underline bg-black hover:bg-[#CFC9BC] py-[8px] px-[12px] border-[2px] border-black rounded-full transition duration-150 ease-out hover:ease-in leading-none"
+										to="/login"
+										className={`text-[14px] text-[#E6FF00] hover:text-black font-semibold no-underline bg-black 
+        py-[8px] px-[12px] border-[2px] border-black rounded-full transition duration-150 ease-out hover:ease-in leading-none 
+        hover:bg-[${isHome ? '#E6FF00' : '#CFC9BC'}]`}
 									>
 										Masuk
 									</Link>
