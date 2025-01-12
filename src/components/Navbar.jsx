@@ -10,11 +10,13 @@ import {
 	useMediaQuery
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
 	const [open, setOpen] = useState(false);
 	const isMobile = useMediaQuery('(max-width:600px)');
+
+	const location = useLocation();
 
 	const handleDrawerToggle = () => {
 		setOpen(!open);
@@ -96,11 +98,13 @@ function Navbar() {
 				className="!bg-[#CFC9BC] !shadow-none !absolute top-0"
 				sx={{ height: isMobile ? 88 : 82 }}
 			>
-				<img
-					src="public/img/petir-atas.png"
-					alt=""
-					className="absolute top-0 right-0 z-[-1]"
-				/>
+				{location.pathname == '/' && (
+					<img
+						src="public/img/petir-atas.png"
+						alt=""
+						className="absolute top-0 right-0 z-[-1]"
+					/>
+				)}
 				<div className="max-w-7xl w-full mx-auto">
 					<Toolbar
 						className="!p-0"

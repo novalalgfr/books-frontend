@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './main/Home';
-import About from './main/About';
+import Buku from './main/Buku';
 
 const AppRoutes = () => {
 	return (
@@ -10,8 +10,8 @@ const AppRoutes = () => {
 				element={<Home />}
 			/>
 			<Route
-				path="/about"
-				element={<About />}
+				path="/buku"
+				element={<Buku />}
 			/>
 		</Routes>
 	);
