@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
 	AppBar,
 	Toolbar,
@@ -7,21 +7,51 @@ import {
 	Drawer,
 	List,
 	ListItem,
-	useMediaQuery
+	useMediaQuery,
+	Menu,
+	MenuItem
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
 	const [open, setOpen] = useState(false);
 	const isMobile = useMediaQuery('(max-width:600px)');
-
+	const [loggedIn, setLoggedIn] = useState(false); // Status login
+	const [userName, setUserName] = useState(''); // Nama user dinamis
+	const [anchorEl, setAnchorEl] = useState(null); // Dropdown anchor
 	const location = useLocation();
-	const isHome = location.pathname === '/';
 
 	const handleDrawerToggle = () => {
 		setOpen(!open);
 	};
+
+	const handleMenuOpen = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+
+	const handleMenuClose = () => {
+		setAnchorEl(null);
+	};
+
+	const handleLogout = () => {
+		setLoggedIn(false);
+		setUserName('');
+		localStorage.removeItem('userData'); // Clear user data on logout
+		handleMenuClose();
+		// Tambahkan logika logout (hapus token, redirect, dsb)
+	};
+
+	// Simulasi pengambilan data user setelah login
+	useEffect(() => {
+		// Ambil data user dari localStorage
+		const userData = JSON.parse(localStorage.getItem('userData')); // Ambil dari localStorage
+		if (userData) {
+			setLoggedIn(true);
+			setUserName(userData.name); // Set nama dari data user
+		}
+	}, []);
 
 	const drawer = (
 		<Drawer
@@ -71,24 +101,26 @@ function Navbar() {
 					className="!py-3 text-[14px] rounded"
 				>
 					<Link
-						to="/"
+						to="/buku"
 						style={{ textDecoration: 'none', color: 'inherit' }}
 					>
 						Buku
 					</Link>
 				</ListItem>
-				<ListItem
-					button
-					onClick={handleDrawerToggle}
-					className="!py-3 text-[14px] bg-[#DC3635] hover:bg-[#CFC9BC] rounded"
-				>
-					<Link
-						to="/"
-						style={{ textDecoration: 'none', color: 'inherit' }}
+				{!loggedIn && (
+					<ListItem
+						button
+						onClick={handleDrawerToggle}
+						className="!py-3 text-[14px] bg-[#DC3635] hover:bg-[#CFC9BC] rounded"
 					>
-						Masuk
-					</Link>
-				</ListItem>
+						<Link
+							to="/login"
+							style={{ textDecoration: 'none', color: 'inherit' }}
+						>
+							Masuk
+						</Link>
+					</ListItem>
+				)}
 			</List>
 		</Drawer>
 	);
@@ -99,7 +131,7 @@ function Navbar() {
 				className="!bg-[#CFC9BC] !shadow-none !absolute top-0"
 				sx={{ height: isMobile ? 88 : 82 }}
 			>
-				{location.pathname == '/' && (
+				{location.pathname === '/' && (
 					<img
 						src="public/img/petir-atas.png"
 						alt=""
@@ -149,14 +181,50 @@ function Navbar() {
 									>
 										Buku
 									</Link>
-									<Link
-										to="/login"
-										className={`text-[14px] text-[#E6FF00] hover:text-black font-semibold no-underline bg-black 
-        py-[8px] px-[12px] border-[2px] border-black rounded-full transition duration-150 ease-out hover:ease-in leading-none 
-        hover:bg-[${isHome ? '#E6FF00' : '#CFC9BC'}]`}
-									>
-										Masuk
-									</Link>
+									{loggedIn ? (
+										<div>
+											<div
+												aria-controls="user-menu"
+												aria-haspopup="true"
+												onClick={handleMenuOpen}
+												className="!text-black !border-lg flex items-center cursor-pointer"
+											>
+												<AccountCircle />
+												<Typography
+													variant="body2"
+													className="!ml-2 !font-semibold"
+												>
+													{userName}{' '}
+													{/* Tampilkan nama pengguna */}
+												</Typography>
+											</div>
+
+											<Menu
+												id="user-menu"
+												anchorEl={anchorEl}
+												open={Boolean(anchorEl)}
+												onClose={handleMenuClose}
+											>
+												<MenuItem
+													onClick={handleLogout}
+													sx={{
+														fontFamily:
+															'Poppins, sans-serif',
+														fontSize: '13px'
+													}}
+												>
+													Logout
+												</MenuItem>
+											</Menu>
+										</div>
+									) : (
+										<Link
+											to="/login"
+											className="text-[14px] text-[#E6FF00] font-semibold no-underline bg-black py-[8px] px-[12px] border-[2px] border-black rounded-full transition duration-150 ease-out hover:ease-in leading-none"
+										>
+											Masuk
+										</Link>
+									)}
 								</div>
 							</>
 						)}
