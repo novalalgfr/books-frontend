@@ -63,6 +63,15 @@
 
     \*Penjelasan: Di bagian ini, {row."nama kolom"} digunakan untuk menampilkan data sesuai dengan nama kolom pada tabel.
 
+4. Untuk memanggil gambar
+    ```bash
+    img
+        src={`http://127.0.0.1:8000/storage/${row.cover_buku}`}
+        alt={row.judul}
+        style={{ width: '100px', height: 'auto', borderRadius: '8px' }}
+    />
+    ```
+
 ### File FormAkun.jsx (Untuk Form Create dan Edit)
 
 1. Menyesuaikan kolom-kolom yang ada pada form: Di bagian ini, Anda harus menyesuaikan data form agar sesuai dengan kolom yang ingin diinputkan. Misalnya, jika Anda ingin memasukkan "Name", pastikan kolom tersebut ada pada state formData. Ubah bagian kode berikut pada baris ke-6:
