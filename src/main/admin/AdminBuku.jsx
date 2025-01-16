@@ -25,7 +25,7 @@ const AdminBuku = () => {
 	const fetchData = async () => {
 		setLoading(true);
 		try {
-			const response = await fetch('http://127.0.0.1:8000/api/...');
+			const response = await fetch('http://127.0.0.1:8000/api/buku');
 			const result = await response.json();
 			if (result.success) {
 				setData(result.data);
@@ -43,7 +43,7 @@ const AdminBuku = () => {
 
 	const handleDelete = async (id) => {
 		try {
-			await fetch(`http://127.0.0.1:8000/api/.../${id}`, {
+			await fetch(`http://127.0.0.1:8000/api/buku/${id}`, {
 				method: 'DELETE'
 			});
 			fetchData();
@@ -96,10 +96,16 @@ const AdminBuku = () => {
 										ID
 									</TableCell>
 									<TableCell className="!text-white !font-semibold">
-										Name
+										Judul Buku
 									</TableCell>
 									<TableCell className="!text-white !font-semibold">
-										Actions
+										Deskripsi Buku
+									</TableCell>
+									<TableCell className="!text-white !font-semibold">
+										Harga Buku
+									</TableCell>
+									<TableCell className="!text-white !font-semibold">
+										Cover Buku
 									</TableCell>
 								</TableRow>
 							</TableHead>
@@ -107,7 +113,22 @@ const AdminBuku = () => {
 								{data.map((row) => (
 									<TableRow key={row.id}>
 										<TableCell>{row.id}</TableCell>
-										<TableCell>{row.name}</TableCell>
+										<TableCell>{row.judul_buku}</TableCell>
+										<TableCell>
+											{row.deskripsi_buku}
+										</TableCell>
+										<TableCell>{row.harga_buku}</TableCell>
+										<TableCell>
+											<img
+												src={`http://127.0.0.1:8000/storage/${row.cover_buku}`}
+												alt={row.judul}
+												style={{
+													width: '100px',
+													height: 'auto',
+													borderRadius: '8px'
+												}}
+											/>
+										</TableCell>
 										<TableCell>
 											<Button
 												variant="contained"

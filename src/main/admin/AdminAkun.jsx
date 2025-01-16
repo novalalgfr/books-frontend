@@ -99,7 +99,16 @@ const AdminAkun = () => {
 										Name
 									</TableCell>
 									<TableCell className="!text-white !font-semibold">
-										Actions
+										Email
+									</TableCell>
+									<TableCell className="!text-white !font-semibold">
+										Password
+									</TableCell>
+									<TableCell className="!text-white !font-semibold">
+										Role
+									</TableCell>
+									<TableCell className="!text-white !font-semibold">
+										Action
 									</TableCell>
 								</TableRow>
 							</TableHead>
@@ -108,6 +117,9 @@ const AdminAkun = () => {
 									<TableRow key={row.id}>
 										<TableCell>{row.id}</TableCell>
 										<TableCell>{row.name}</TableCell>
+										<TableCell>{row.email}</TableCell>
+										<TableCell>{row.password}</TableCell>
+										<TableCell>{row.role}</TableCell>
 										<TableCell>
 											<Button
 												variant="contained"

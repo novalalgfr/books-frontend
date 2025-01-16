@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { TextField, Button } from '@mui/material';
 
 const FormAkun = ({ editData, onClose }) => {
-	const [formData, setFormData] = useState(editData || { name: '' });
+	const [formData, setFormData] = useState(
+		editData || { name: '', email: '', password: '', role: '' }
+	);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -48,6 +50,36 @@ const FormAkun = ({ editData, onClose }) => {
 				required
 				size="small"
 			/>
+			<TextField
+				fullWidth
+				label="Email"
+				name="email"
+				value={formData.email}
+				onChange={handleChange}
+				margin="normal"
+				required
+				size="small"
+			/>
+			<TextField
+				fullWidth
+				label="Password"
+				name="password"
+				value={formData.password}
+				onChange={handleChange}
+				margin="normal"
+				required
+				size="small"
+			/>
+			<TextField
+				fullWidth
+				label="Role"
+				name="role"
+				value={formData.role}
+				onChange={handleChange}
+				margin="normal"
+				required
+				size="small"
+			/>
 			<Button
 				type="submit"
 				variant="contained"
@@ -62,7 +94,10 @@ const FormAkun = ({ editData, onClose }) => {
 FormAkun.propTypes = {
 	editData: PropTypes.shape({
 		id: PropTypes.number,
-		name: PropTypes.string
+		name: PropTypes.string,
+		email: PropTypes.string,
+		password: PropTypes.string,
+		role: PropTypes.string
 	}),
 	onClose: PropTypes.func.isRequired
 };
