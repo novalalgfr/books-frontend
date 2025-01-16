@@ -39,20 +39,17 @@ function Login() {
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({ email, password }) // Kirim email dan password
+				body: JSON.stringify({ email, password })
 			});
 
 			const result = await response.json();
 
 			if (result.success) {
-				// Simpan data user ke localStorage
 				localStorage.setItem('userData', JSON.stringify(result.data));
-
-				// Check the role and navigate accordingly
 				if (result.data.role === 'user') {
-					navigate('/'); // Redirect to homepage if the role is 'user'
+					navigate('/');
 				} else if (result.data.role === 'admin') {
-					navigate('/admin/dashboard'); // Redirect to admin dashboard if the role is 'admin'
+					navigate('/admin/dashboard');
 				}
 			} else {
 				setError('Email atau password salah.');
@@ -79,11 +76,10 @@ function Login() {
 					<div className="bg-white flex flex-col justify-center gap-4 p-5">
 						<div>
 							<Typography
-								variant="h6"
 								sx={{ flexGrow: 1 }}
-								className="text-black"
+								className="!text-black !font-black !text-[24px]"
 							>
-								My Website
+								BOOKS
 							</Typography>
 						</div>
 						<div className="flex flex-col gap-4 mt-4">

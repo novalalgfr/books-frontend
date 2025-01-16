@@ -107,6 +107,9 @@ const AdminBuku = () => {
 									<TableCell className="!text-white !font-semibold">
 										Cover Buku
 									</TableCell>
+									<TableCell className="!text-white !font-semibold">
+										Aksi
+									</TableCell>
 								</TableRow>
 							</TableHead>
 							<TableBody>

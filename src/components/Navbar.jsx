@@ -18,9 +18,9 @@ import { Link, useLocation } from 'react-router-dom';
 function Navbar() {
 	const [open, setOpen] = useState(false);
 	const isMobile = useMediaQuery('(max-width:600px)');
-	const [loggedIn, setLoggedIn] = useState(false); // Status login
-	const [userName, setUserName] = useState(''); // Nama user dinamis
-	const [anchorEl, setAnchorEl] = useState(null); // Dropdown anchor
+	const [loggedIn, setLoggedIn] = useState(false);
+	const [userName, setUserName] = useState('');
+	const [anchorEl, setAnchorEl] = useState(null);
 	const location = useLocation();
 
 	const handleDrawerToggle = () => {
@@ -38,18 +38,15 @@ function Navbar() {
 	const handleLogout = () => {
 		setLoggedIn(false);
 		setUserName('');
-		localStorage.removeItem('userData'); // Clear user data on logout
+		localStorage.removeItem('userData');
 		handleMenuClose();
-		// Tambahkan logika logout (hapus token, redirect, dsb)
 	};
 
-	// Simulasi pengambilan data user setelah login
 	useEffect(() => {
-		// Ambil data user dari localStorage
-		const userData = JSON.parse(localStorage.getItem('userData')); // Ambil dari localStorage
+		const userData = JSON.parse(localStorage.getItem('userData'));
 		if (userData) {
 			setLoggedIn(true);
-			setUserName(userData.name); // Set nama dari data user
+			setUserName(userData.name);
 		}
 	}, []);
 
@@ -69,10 +66,10 @@ function Navbar() {
 		>
 			<div className="flex items-center p-6 border-b-[1px] !border-[#D4D4D8]">
 				<Typography
-					variant="h6"
 					sx={{ flexGrow: 1 }}
+					className="!text-black !font-black !text-[24px]"
 				>
-					My Website
+					BOOKS
 				</Typography>
 				<IconButton
 					edge="start"
@@ -146,10 +143,10 @@ function Navbar() {
 						{isMobile ? (
 							<div className="w-full flex items-center p-6">
 								<Typography
-									variant="h6"
 									sx={{ flexGrow: 1 }}
+									className="!text-black !font-black !text-[24px]"
 								>
-									My Website
+									BOOKS
 								</Typography>
 								<IconButton
 									edge="start"
@@ -162,11 +159,10 @@ function Navbar() {
 						) : (
 							<>
 								<Typography
-									variant="h6"
 									sx={{ flexGrow: 1 }}
-									className="text-black"
+									className="!text-black !font-black !text-[24px]"
 								>
-									My Website
+									BOOKS
 								</Typography>
 								<div className="flex gap-8 items-center">
 									<Link

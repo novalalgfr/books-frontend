@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
-	const [userName, setUserName] = useState(''); // Nama user dinamis
-	const [anchorEl, setAnchorEl] = useState(null); // Dropdown anchor
-	const navigate = useNavigate(); // Hook to handle redirection
+	const [userName, setUserName] = useState('');
+	const [anchorEl, setAnchorEl] = useState(null);
+	const navigate = useNavigate();
 
 	const handleMenuOpen = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -17,18 +17,15 @@ const Sidebar = () => {
 
 	const handleLogout = () => {
 		setUserName('');
-		localStorage.removeItem('userData'); // Clear user data on logout
+		localStorage.removeItem('userData');
 		handleMenuClose();
-		navigate('/'); // Redirect to homepage ("/")
-		// Tambahkan logika logout (hapus token, redirect, dsb)
+		navigate('/');
 	};
 
-	// Simulasi pengambilan data user setelah login
 	useEffect(() => {
-		// Ambil data user dari localStorage
-		const userData = JSON.parse(localStorage.getItem('userData')); // Ambil dari localStorage
+		const userData = JSON.parse(localStorage.getItem('userData'));
 		if (userData) {
-			setUserName(userData.name); // Set nama dari data user
+			setUserName(userData.name);
 		}
 	}, []);
 
@@ -38,10 +35,10 @@ const Sidebar = () => {
 				<div>
 					<div className="pb-8">
 						<Typography
-							variant="h6"
 							sx={{ flexGrow: 1 }}
+							className="!text-white !font-black !text-[24px]"
 						>
-							My Website
+							BOOKS
 						</Typography>
 					</div>
 					<nav>
@@ -96,7 +93,7 @@ const Sidebar = () => {
 								variant="body2"
 								className="block w-full py-2 px-3 bg-[#383838] rounded"
 							>
-								{userName} {/* Tampilkan nama pengguna */}
+								{userName}
 							</Typography>
 						</div>
 

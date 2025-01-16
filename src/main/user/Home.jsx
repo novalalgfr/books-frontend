@@ -2,6 +2,15 @@ import { ArrowRightAlt } from '@mui/icons-material';
 import { Typography } from '@mui/material';
 
 function Home() {
+	const images = [
+		'public/img/official-store-1.svg',
+		'public/img/official-store-2.svg',
+		'public/img/official-store-3.svg',
+		'public/img/official-store-4.svg',
+		'public/img/official-store-5.svg',
+		'public/img/official-store-6.svg'
+	];
+
 	const books = [
 		{
 			image: 'public/img/book-1.png',
@@ -67,30 +76,13 @@ function Home() {
 			<div className="bg-white">
 				<div className="max-w-7xl mx-auto py-6">
 					<div className="grid grid-cols-6 gap-4">
-						<img
-							src="public/img/official-store-1.svg"
-							alt=""
-						/>
-						<img
-							src="public/img/official-store-2.svg"
-							alt=""
-						/>
-						<img
-							src="public/img/official-store-3.svg"
-							alt=""
-						/>
-						<img
-							src="public/img/official-store-4.svg"
-							alt=""
-						/>
-						<img
-							src="public/img/official-store-5.svg"
-							alt=""
-						/>
-						<img
-							src="public/img/official-store-6.svg"
-							alt=""
-						/>
+						{images.map((src, index) => (
+							<img
+								key={index}
+								src={src}
+								alt={`Official Store ${index + 1}`}
+							/>
+						))}
 					</div>
 				</div>
 			</div>
@@ -113,13 +105,6 @@ function Home() {
 										berbagai genre untuk memenuhi selera
 										baca Anda.
 									</Typography>
-									{/* <a
-										href=""
-										className="!text-[14px] !font-semibold"
-									>
-										Explore Now{' '}
-										<ArrowRightAlt className="!text-[24px]" />
-									</a> */}
 								</div>
 								<div>
 									<img
@@ -146,13 +131,6 @@ function Home() {
 										Nikmati proses belanja yang cepat, aman,
 										dan nyaman untuk setiap pembelian.
 									</Typography>
-									{/* <a
-										href=""
-										className="!text-[14px] !font-semibold"
-									>
-										Explore Now{' '}
-										<ArrowRightAlt className="!text-[24px]" />
-									</a> */}
 								</div>
 							</div>
 						</div>
@@ -207,7 +185,7 @@ function Home() {
 										href=""
 										className="!text-[14px] !font-semibold flex items-center"
 									>
-										Purchase Now{' '}
+										Beli Sekarang{' '}
 										<ArrowRightAlt className="!text-[24px] ml-2" />
 									</a>
 								</div>

@@ -85,7 +85,7 @@ function Buku() {
 										href=""
 										className="!text-[14px] !font-semibold flex items-center"
 									>
-										Purchase Now{' '}
+										Beli Sekarang{' '}
 										<ArrowRightAlt className="!text-[24px] ml-2" />
 									</a>
 								</div>

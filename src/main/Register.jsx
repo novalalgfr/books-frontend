@@ -83,11 +83,10 @@ function Register() {
 					<div className="bg-white flex flex-col justify-center gap-4 p-5">
 						<div>
 							<Typography
-								variant="h6"
 								sx={{ flexGrow: 1 }}
-								className="text-black"
+								className="!text-black !font-black !text-[24px]"
 							>
-								My Website
+								BOOKS
 							</Typography>
 						</div>
 						<div className="flex flex-col gap-4 mt-4">

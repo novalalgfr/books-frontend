@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { TextField, Button } from '@mui/material';
-import { Desk } from '@mui/icons-material';
 
 const FormBuku = ({ editData, onClose }) => {
 	const [formData, setFormData] = useState(
@@ -27,26 +26,34 @@ const FormBuku = ({ editData, onClose }) => {
 		e.preventDefault();
 
 		try {
-			// Gunakan FormData untuk menangani file upload
 			const payload = new FormData();
-			payload.append('name', formData.name);
+			payload.append('judul_buku', formData.judul_buku);
+			payload.append('deskripsi_buku', formData.deskripsi_buku);
+			payload.append('harga_buku', formData.harga_buku);
 			if (formData.cover_buku) {
 				payload.append('cover_buku', formData.cover_buku);
 			}
 
 			const response = await fetch(
 				editData
-					? `http://127.0.0.1:8000/api/.../${editData.id}`
-					: 'http://127.0.0.1:8000/api/...',
+					? `http://127.0.0.1:8000/api/buku/${editData.id}`
+					: 'http://127.0.0.1:8000/api/buku',
 				{
 					method: editData ? 'PUT' : 'POST',
-					body: payload // FormData digunakan sebagai body
+					body: payload,
+					redirect: 'follow'
 				}
 			);
+
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
 
 			const result = await response.json();
 			if (result.success) {
 				onClose();
+			} else {
+				console.error('Form submission failed:', result);
 			}
 		} catch (error) {
 			console.error('Error submitting form:', error);
@@ -97,13 +104,13 @@ const FormBuku = ({ editData, onClose }) => {
 			/>
 
 			<label
-				htmlFor="cover_upload"
+				htmlFor="cover_buku"
 				style={{ display: 'block', marginTop: '16px' }}
 			>
 				<input
 					type="file"
 					name="cover_buku"
-					id="cover-upload"
+					id="cover_buku"
 					onChange={handleFileChange}
 					style={{ display: 'none' }}
 				/>

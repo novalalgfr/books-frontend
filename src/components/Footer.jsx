@@ -8,12 +8,14 @@ function Footer() {
 				<div className="grid grid-cols-3 justify-items-center	 gap-8">
 					<div>
 						<Typography className="!text-xl !font-bold">
-							My Website
+							BOOKS
 						</Typography>
 						<Typography className="!text-zinc-300 !text-[14px] !mt-4">
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua.
+							Books adalah platform yang menyediakan koleksi buku
+							lengkap dari berbagai genre, mulai dari klasik
+							hingga buku modern. Kami bertujuan untuk memberikan
+							pengalaman membaca yang menyenangkan dan
+							menginspirasi bagi para pembaca dari segala usia.
 						</Typography>
 					</div>
 					<div>
@@ -26,9 +28,6 @@ function Footer() {
 							</li>
 							<li className="!text-zinc-300 !text-[14px] mb-4 cursor-pointer hover:underline">
 								Buku
-							</li>
-							<li className="!text-zinc-300 !text-[14px] mb-4 cursor-pointer hover:underline">
-								Blog
 							</li>
 							<li className="!text-zinc-300 !text-[14px] mb-4 cursor-pointer hover:underline">
 								Masuk
@@ -46,8 +45,9 @@ function Footer() {
 										<LocationOn className="!text-[24px]" />
 									</div>
 									<div>
-										Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit
+										Gedung Setiabudi 2, lt 2 suite 207 B-C
+										Jl. H.R Rasuna Said Kav.62 - Kuningan
+										Jakarta Selatan DKI Jakarta 12920
 									</div>
 								</div>
 							</li>
@@ -56,7 +56,7 @@ function Footer() {
 									<div>
 										<Phone className="!text-[24px]" />
 									</div>
-									<div>021-XXXXXX</div>
+									<div>021-3413452</div>
 								</div>
 							</li>
 						</ul>
