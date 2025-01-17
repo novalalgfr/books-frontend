@@ -174,7 +174,7 @@ function Home() {
 											<img
 												src={`http://127.0.0.1:8000/storage/${book.cover_buku}`}
 												alt={book.judul_buku}
-												className="w-full rounded-[8px]"
+												className="w-full rounded-[8px] h-[300px]"
 											/>
 										</div>
 										<div className="flex flex-col flex-grow">
