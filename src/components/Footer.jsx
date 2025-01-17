@@ -1,7 +1,10 @@
 import { LocationOn, Phone } from '@mui/icons-material';
 import { Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function Footer() {
+	const navigate = useNavigate();
+
 	return (
 		<div className="bg-[#11190C] text-white mt-24">
 			<div className="max-w-7xl mx-auto py-16">
@@ -23,15 +26,26 @@ function Footer() {
 							Menu
 						</Typography>
 						<ul className="list-none mt-4">
-							<li className="!text-zinc-300 !text-[14px] mb-4 cursor-pointer hover:underline">
-								Beranda
-							</li>
-							<li className="!text-zinc-300 !text-[14px] mb-4 cursor-pointer hover:underline">
-								Buku
-							</li>
-							<li className="!text-zinc-300 !text-[14px] mb-4 cursor-pointer hover:underline">
-								Masuk
-							</li>
+							<ul>
+								<li
+									className="!text-zinc-300 !text-[14px] mb-4 cursor-pointer hover:underline"
+									onClick={() => navigate('/')}
+								>
+									Beranda
+								</li>
+								<li
+									className="!text-zinc-300 !text-[14px] mb-4 cursor-pointer hover:underline"
+									onClick={() => navigate('/buku')}
+								>
+									Buku
+								</li>
+								<li
+									className="!text-zinc-300 !text-[14px] mb-4 cursor-pointer hover:underline"
+									onClick={() => navigate('/login')}
+								>
+									Masuk
+								</li>
+							</ul>
 						</ul>
 					</div>
 					<div>
