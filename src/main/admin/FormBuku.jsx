@@ -74,7 +74,7 @@ const FormBuku = ({ editData, onClose }) => {
 			/>
 			<TextField
 				fullWidth
-				label="Buku"
+				label="Deskripsi Buku"
 				name="deskripsi_buku"
 				value={formData.deskripsi_buku}
 				onChange={handleChange}

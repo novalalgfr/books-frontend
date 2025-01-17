@@ -179,7 +179,10 @@ function Home() {
 										</div>
 										<div className="flex flex-col flex-grow">
 											<Typography className="!text-[15px] !font-bold">
-												Rp {book.harga_buku}
+												Rp{' '}
+												{parseInt(
+													book.harga_buku
+												).toLocaleString('id-ID')}
 											</Typography>
 											<Typography className="!text-[17px] !font-bold">
 												{book.judul_buku}
