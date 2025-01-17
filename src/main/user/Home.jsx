@@ -179,7 +179,7 @@ function Home() {
 										</div>
 										<div className="flex flex-col flex-grow">
 											<Typography className="!text-[15px] !font-bold">
-												${book.harga_buku}
+												Rp {book.harga_buku}
 											</Typography>
 											<Typography className="!text-[17px] !font-bold">
 												{book.judul_buku}
