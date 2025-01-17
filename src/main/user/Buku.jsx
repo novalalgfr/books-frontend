@@ -1,40 +1,29 @@
 import { ArrowRightAlt } from '@mui/icons-material';
 import { Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
 
 function Buku() {
-	const books = [
-		{
-			image: 'public/img/book-1.png',
-			price: '$4.99',
-			title: 'Pride and Prejudice (The Peacock Edition)',
-			description: 'Kisah cinta klasik penuh prasangka dan harga diri.'
-		},
-		{
-			image: 'public/img/book-2.png',
-			price: '$3.49',
-			title: 'A Clockwork Orange',
-			description:
-				'Distopia kekerasan, kebebasan, dan moralitas manusia terganggu.'
-		},
-		{
-			image: 'public/img/book-3.png',
-			price: '$5.99',
-			title: 'The Grapes of Wrath',
-			description: 'Perjuangan keluarga miskin di era Depresi Besar.'
-		},
-		{
-			image: 'public/img/book-4.png',
-			price: '$2.99',
-			title: 'American Psycho',
-			description: 'Kehidupan gila seorang bankir psikopat di kota.'
-		},
-		{
-			image: 'public/img/book-5.png',
-			price: '$4.99',
-			title: 'Brave New World',
-			description: 'Dunia futuristik dengan kontrol total dan hedonisme.'
+	const [books, setBooks] = useState([]);
+	const [loading, setLoading] = useState(true);
+
+	const fetchBooks = async () => {
+		setLoading(true);
+		try {
+			const response = await fetch('http://127.0.0.1:8000/api/buku');
+			const result = await response.json();
+			if (result.success) {
+				setBooks(result.data);
+			}
+		} catch (error) {
+			console.error('Error fetching data:', error);
+		} finally {
+			setLoading(false);
 		}
-	];
+	};
+
+	useEffect(() => {
+		fetchBooks();
+	}, []);
 
 	return (
 		<>
@@ -56,42 +45,61 @@ function Buku() {
 			</div>
 			<div className="max-w-7xl mx-auto">
 				<div className="grid grid-cols-5 gap-4 mt-12">
-					{books.map((book, index) => (
-						<div
-							key={index}
-							className="bg-[#F3F1EE] rounded-[16px] flex flex-col h-full"
-						>
-							<div className="flex flex-col gap-4 p-4 flex-grow">
-								<div>
-									<img
-										src={book.image}
-										alt={book.title}
-										className="w-full rounded-[8px]"
-									/>
+					{loading
+						? Array.from({ length: 5 }).map((_, index) => (
+								<div
+									key={index}
+									className="bg-[#F3F1EE] rounded-[16px] flex flex-col h-full animate-pulse"
+								>
+									<div className="flex flex-col gap-4 p-4 flex-grow">
+										<div className="bg-gray-300 w-full h-48 rounded-[8px]"></div>
+										<div className="flex flex-col flex-grow gap-2">
+											<div className="bg-gray-300 h-4 w-1/2 rounded"></div>
+											<div className="bg-gray-300 h-5 w-3/4 rounded"></div>
+											<div className="bg-gray-300 h-3 w-full rounded !mt-2 !mb-3 flex-grow"></div>
+										</div>
+										<div className="flex items-end">
+											<div className="bg-gray-300 h-4 w-1/4 rounded"></div>
+										</div>
+									</div>
 								</div>
-								<div className="flex flex-col flex-grow">
-									<Typography className="!text-[15px] !font-bold">
-										{book.price}
-									</Typography>
-									<Typography className="!text-[17px] !font-bold">
-										{book.title}
-									</Typography>
-									<Typography className="!text-[13px] text-justify !mt-2 !mb-3 flex-grow">
-										{book.description}
-									</Typography>
+						  ))
+						: books.map((book, index) => (
+								<div
+									key={index}
+									className="bg-[#F3F1EE] rounded-[16px] flex flex-col h-full"
+								>
+									<div className="flex flex-col gap-4 p-4 flex-grow">
+										<div>
+											<img
+												src={`http://127.0.0.1:8000/storage/${book.cover_buku}`}
+												alt={book.judul_buku}
+												className="w-full rounded-[8px]"
+											/>
+										</div>
+										<div className="flex flex-col flex-grow">
+											<Typography className="!text-[15px] !font-bold">
+												${book.harga_buku}
+											</Typography>
+											<Typography className="!text-[17px] !font-bold">
+												{book.judul_buku}
+											</Typography>
+											<Typography className="!text-[13px] text-justify !mt-2 !mb-3 flex-grow">
+												{book.deskripsi_buku}
+											</Typography>
+										</div>
+										<div className="flex items-end">
+											<a
+												href="#"
+												className="!text-[14px] !font-semibold flex items-center"
+											>
+												Beli Sekarang{' '}
+												<ArrowRightAlt className="!text-[24px] ml-2" />
+											</a>
+										</div>
+									</div>
 								</div>
-								<div className="flex items-end">
-									<a
-										href=""
-										className="!text-[14px] !font-semibold flex items-center"
-									>
-										Beli Sekarang{' '}
-										<ArrowRightAlt className="!text-[24px] ml-2" />
-									</a>
-								</div>
-							</div>
-						</div>
-					))}
+						  ))}
 				</div>
 			</div>
 		</>
