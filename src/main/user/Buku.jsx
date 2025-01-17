@@ -35,11 +35,11 @@ function Buku() {
 				/>
 				<div className="max-w-7xl mx-auto ">
 					<Typography className="!text-7xl !font-black ">
-						Lorem ipsum dolor sit amet
+						Toko Buku Pilihanmu
 					</Typography>
 					<Typography className="!mt-4">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-						sed do eiusmod tempor incididunt ut labore
+						Ribuan buku menarik dari berbagai kategori menunggumu.
+						Mulailah petualangan membaca sekarang!
 					</Typography>
 				</div>
 			</div>
